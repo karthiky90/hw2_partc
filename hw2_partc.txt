@@ -1,0 +1,28 @@
+What command did you use to configure the remote ?
+git remote add origin https://github.com/karthiky90/hw2_partc.git
+
+Instead of creating a new git repository and configuring it with this remote, I could have asked you to git clone the repo from afs. If you had done so, what would the output of git remote -v be?
+
+karthiks-MacBook-Air:HW2_PARTC karthikyadavalli$ git remote -v
+origin	https://github.com/karthiky90/hw2_partc.git (fetch)
+origin	https://github.com/karthiky90/hw2_partc.git (push)
+
+Run git fetch remotename (substituting your remote name for remotename).
+Did anything appear in your working directory? Why?
+
+Nothing displayed. Remote repo does not exist yet since we haven't pushed origin.
+
+Update your local master branch with the remote one, and give the command you used to do so.
+
+git branch --set-upstream-to=origin/master
+git pull
+
+Your working directory should have been updated. You should check that. That means the master branch was updated on the remote. But it's possible that when we ran git fetch, we fetched other branches as well! How could we (i.e. what command could we use) find all the branches we may have gotten from the remote?
+
+git branch -a
+
+What is a bare repository? What makes it different from normal repositories? In what situations is it used?
+A "bare" repository in Git just contains the version control information and no working files (no tree) and it doesn't contain the special .git sub-directory. Instead, it contains all the contents of the .git sub-directory directly in the main directory itself.
+
+git is a distributed version control system, no one will directly edit files in the shared centralized repository. Instead developers will clone the shared bare repo, make changes locally in their working copies of the repo, then push back to the shared bare repo to make their changes available to other users.
+
